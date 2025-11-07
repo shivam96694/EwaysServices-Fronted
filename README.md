@@ -32,3 +32,17 @@ It’s built using **React.js**, **Axios**, and **Material UI**, and connects se
 ```bash
 npm install
 
+---
+
+## 🧑‍💻 Author
+
+👨‍💻 Shivam Sharma  
+💼 Aspiring Full Stack Developer | React & Node Enthusiast  
+📧 Email: [shivamro45gwl@gmail.com](mailto:shivamro45gwl@gmail.com)  
+🔗 GitHub: [@shivam96694](https://github.com/shivam96694)
+
+---
+
+## 📜 License
+This project is open-source under the **MIT License**.
+
