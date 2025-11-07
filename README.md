@@ -26,10 +26,6 @@ It’s built using **React.js**, **Axios**, and **Material UI**, and connects se
 
 ---
 
-## 🛠️ Setup Instructions
-
-### 1️⃣ Install Dependencies
-```bash
 npm install
 
 ---
