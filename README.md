@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# EwaysServices-Fullstack
+EWAYS Services Pvt. Ltd. is a full-stack web application designed to offer seamless digital service management — including user authentication, admin service management, and API-based integration. The project is built with a focus on scalability, security, and modular , combining a React.js frontend with a Node.js + Express backend and MySQL.
+>>>>>>> cde62dca7be094040c36a0a90b74ef5612bd2cc2
