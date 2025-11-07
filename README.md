@@ -33,6 +33,7 @@ It’s built using **React.js**, **Axios**, and **Material UI**, and connects se
 npm install
 
 ---
+---
 
 ## 🧑‍💻 Author
 
@@ -44,5 +45,12 @@ npm install
 ---
 
 ## 📜 License
+
 This project is open-source under the **MIT License**.
 
+---
+
+### 🔗 Related Repositories
+
+- **Frontend:** [EwaysServices-Fronted](https://github.com/shivam96694/EwaysServices-Fronted)  
+- **Backend:** [EwaysServices-Backend](https://github.com/shivam96694/EwaysServices-Backend)
