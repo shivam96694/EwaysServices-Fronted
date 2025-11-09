@@ -11,14 +11,20 @@ async function getData(url) {
     return { data: [], message: "Backend error", status: false };
   }
 }
-
 async function postData(url, body) {
   try {
     const response = await axios.post(`${serverURL}/${url}`, body);
-    return response.data;
-  } catch (e) {
-    console.error("API POST Error:", e);
-    return { data: [], message: "Backend error", status: false };
+    return response.data; // ✅ normal 2xx response
+  } catch (error) {
+    console.error("API POST Error:", error);
+
+    // ✅ If backend sent a response (like 400/409), return that JSON
+    if (error.response && error.response.data) {
+      return error.response.data;
+    }
+
+    // Otherwise network error
+    return { success: false, error: "Backend error or network issue" };
   }
 }
 

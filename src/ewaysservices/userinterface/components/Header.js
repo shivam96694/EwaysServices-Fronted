@@ -11,18 +11,38 @@ import {
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../../assets/eway2.png";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import SignUp from "./SignUp";
+import Login from './Login';
+import Otp from "./Otp";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const Header = () => {
   const [languageAnchorEl, setLanguageAnchorEl] = React.useState(null);
   const [servicesAnchorEl, setServicesAnchorEl] = React.useState(null);
 
+
+   const [loginOpen,setLoginOpen]=useState(false)
+  const [signUpOpen,setSignUpOpen]=useState(false)
+    const [otpOpen,setOtpOpen]=useState(false)
+    const [otpValue,setOtpValue]=useState('')
+    const [userData,setUserData]=useState({})
+        const [statusScreen,setStatusScreen]=useState('')
   // ====== Language Menu Handlers ======
   const handleLanguageOpen = (event) => setLanguageAnchorEl(event.currentTarget);
   const handleLanguageClose = () => setLanguageAnchorEl(null);
+ var user=useSelector((state)=>state.user)
+const dispatch = useDispatch();
 
   // ====== Services Menu Handlers ======
   const handleServicesOpen = (event) => setServicesAnchorEl(event.currentTarget);
   const handleServicesClose = () => setServicesAnchorEl(null);
+   
+  var theme=useTheme()
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <AppBar
@@ -121,22 +141,101 @@ const Header = () => {
         </Box>
 
         {/* ===== Buttons ===== */}
-        <Box>
-          <Button
-            variant="contained"
-            sx={buttonStyle}
-            startIcon={<AccountCircleIcon />}
-          >
-            Login
-          </Button>
-          <Button
-            variant="contained"
-            sx={{ ...buttonStyle, ml: 2 }}
-            startIcon={<AccountCircleIcon />}
-          >
-            Sign Up
-          </Button>
-        </Box>
+  {!user?.username ? (
+  <>
+    <Box>
+      <Button
+        variant="contained"
+        sx={buttonStyle}
+        startIcon={<AccountCircleIcon />}
+        onClick={() => setLoginOpen(true)}
+      >
+        Login
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ ...buttonStyle, ml: 2 }}
+        startIcon={<AccountCircleIcon />}
+        onClick={() => setSignUpOpen(true)}
+      >
+        Sign Up
+      </Button>
+
+      <Login
+        otpValue={otpValue}
+        setOtpValue={setOtpValue}
+        otpOpen={otpOpen}
+        setOtpOpen={setOtpOpen}
+        loginOpen={loginOpen}
+        setLoginOpen={setLoginOpen}
+        userData={userData}
+        setUserData={setUserData}
+        setStatusScreen={setStatusScreen}
+        statusScreen={statusScreen}
+      />
+      <SignUp
+        otpValue={otpValue}
+        setOtpValue={setOtpValue}
+        otpOpen={otpOpen}
+        setOtpOpen={setOtpOpen}
+        signUpOpen={signUpOpen}
+        setSignUpOpen={setSignUpOpen}
+        userData={userData}
+        setUserData={setUserData}
+        setStatusScreen={setStatusScreen}
+        statusScreen={statusScreen}
+      />
+      <Otp
+        otpOpen={otpOpen}
+        setOtpOpen={setOtpOpen}
+        otpValue={otpValue}
+        setOtpValue={setOtpValue}
+        userData={userData}
+        setUserData={setUserData}
+      />
+    </Box>
+  </>
+) : (
+  <div
+    style={{
+      marginRight: 30,
+      fontFamily: "sans-serif",
+      fontSize: 18,
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      gap: "12px",
+      fontWeight: "bold",
+    }}
+  >
+    <span>{user.username}</span>
+    <Button
+      variant="outlined"
+      color="error"
+      size="small"
+      sx={{
+        textTransform: "none",
+        fontWeight: "600",
+        borderRadius: "10px",
+      }}
+      onClick={() => {
+        dispatch({ type: "DELETE_USER" });
+        localStorage.removeItem("user");
+        Swal.fire({
+          title: "Logged out successfully!",
+          icon: "success",
+          timer: 2000,
+          toast: true,
+         
+          showConfirmButton: false,
+        });
+      }}
+    >
+      Logout
+    </Button>
+  </div>
+)}
+
       </Toolbar>
     </AppBar>
   );

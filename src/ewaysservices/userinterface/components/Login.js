@@ -1,42 +1,40 @@
-import { DialogContent, Dialog, Button, TextField } from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
+import { DialogContent, Dialog, Button, TextField, Checkbox } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import google from '../../../../assets/google.png';
-import myImage from '../../../../assets/generated-image (1).png'
-import gmail from '../../../../assets/gmail.png';
-import SweetAlert2 from "react-sweetalert2";
-
-export default function Login() {
+import Swal from "sweetalert2";
+import google from "../../../assets/google.png";
+import gmail from "../../../assets/gmail.png";
+import { postData } from "../../services/FetchApiServices"; // 👈 add this import
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+export default function Login({ loginOpen, setLoginOpen,setUserData }) {
   const [checked, setChecked] = useState(false);
-  const [mobileno, setMobileno] = useState("");
-  const [loginOpen, setLoginOpen] = useState(false);
+  const [identifier, setIdentifier] = useState(""); // email or phone
+  const [password, setPassword] = useState("");
   const [error, setError] = useState({});
-  const [swalProps, setSwalProps] = useState({});
+const dispatch = useDispatch();
 
+  // Close dialog
   const handleCloseDialog = () => {
     setLoginOpen(false);
   };
 
-const handleChange = (event) => {
-  setChecked(event.target.checked);
-  // Do NOT call validation or show toast here
-};
-
+  // Handle error updates
   const handleError = (label, errorMessage) => {
     setError((prev) => ({ ...prev, [label]: errorMessage }));
   };
 
+  // Handle validation
   const validate = () => {
     let err = false;
 
-   
+    if (identifier.trim().length === 0) {
+      handleError("identifier", "Email or Phone number required.");
+      err = true;
+    }
 
-   
-
-    const mobile_pattern = /^[0-9]{10}$/;
-    if (!mobile_pattern.test(mobileno)) {
-      handleError("mobileno", "Please input a valid mobile number.");
+    if (password.trim().length < 6) {
+      handleError("password", "Password must be at least 6 characters.");
       err = true;
     }
 
@@ -45,142 +43,278 @@ const handleChange = (event) => {
       err = true;
     } else {
       handleError("checked", "");
-      
     }
 
     return err;
   };
-const handleSubmit = () => {
-  const err = validate();
 
-  setSwalProps({
-    show: true,
-    title: err ? "Please fix the errors and try again." : "Account created successfully!",
-    icon: err ? "error" : "success",
-    timer: 3000,
-    toast: true,
-  
-  target: 'body',
-    showConfirmButton: false,
-    didClose: () => setSwalProps({ show: false }),
-  });
-
-  if (!err) {
-setLoginOpen(false);
  
-  setMobileno("");
+
+  // Handle login submission
+  const handleSubmit = async () => {
+  const err = validate();
+  if (err) {
+    Swal.fire({
+      title: "Please fix the errors and try again.",
+      icon: "error",
+      timer: 3000,
+      toast: true,
+      zIndex: 3000,
+  target: document.querySelector(".MuiDialog-root"), // dialog wrapper
+      showConfirmButton: false,
+    });
+    return;
+  }
+
+  try {
+    // ✅ send login data to backend
+    const res = await postData("users/login", { identifier, password });
+
+    if (res.success) {
+      setUserData(res.user);
+      Swal.fire({
+        title: "Login Successful!",
+        text: `Welcome back ${res.user.username}! 🚀`,
+        icon: "success",
+        timer: 5000,
+        toast: true,
+        zIndex: 3000,
+  target: document.querySelector(".MuiDialog-root"), // dialog wrapper
+        showConfirmButton: false,
+      });
+ localStorage.setItem("user", JSON.stringify(res.user)); // ✅ save user
+  dispatch({ type: "ADD_USER", payload: res.user });
+  setUserData(res.user);    setIdentifier("");
+  setPassword("");
   setChecked(false);
-  setError({});  }
+
+  // ✅ Close dialog after a short delay (optional)
+  setTimeout(() => setLoginOpen(false), 800);
+    } else {
+      Swal.fire({
+        title: res.error || "Invalid credentials!",
+        icon: "error",
+        timer: 3000,
+        toast: true,
+        zIndex: 3000,
+  target: document.querySelector(".MuiDialog-root"), // dialog wrapper
+        showConfirmButton: false,
+      });
+    }
+  } catch (error) {
+    console.error("Login Error:", error);
+    Swal.fire({
+      title: "Server Error. Please try again later.",
+      icon: "error",
+      timer: 3000,
+      toast: true,
+      zIndex: 3000,
+  target: document.querySelector(".MuiDialog-root"), // dialog wrapper
+      showConfirmButton: false,
+    });
+  }
 };
 
+ useEffect(() => {
+  if (!loginOpen) {
+    setTimeout(() => {
+      setIdentifier("");
+      setPassword("");
+      setChecked(false);
+      setError({});
+    }, 200); // small delay so Dialog unmounts smoothly
+  }
+}, [loginOpen]);
   return (
     <>
-  
-      <Button variant="contained" color="primary" onClick={() => setLoginOpen(true)}>
-        Open Login Up Dialog
-      </Button>
-
       <Dialog
         open={loginOpen}
         maxWidth="sm"
-        PaperProps={{ sx: { borderRadius: "10px", width: "700px", maxWidth: "110vw" } }}
+        PaperProps={{
+          sx: { borderRadius: "10px", width: "550px", maxWidth: "90vw" },
+        }}
       >
-        <DialogContent style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <div style={{display:'flex'}}>
-
-      <img src={myImage} alt="Astrology" width="320" style={{paddingRight:10,objectFit:'cover'}} />
-          
-          <div style={{ display: "flex", flexDirection: "column", borderRadius: 10, height: "auto",paddingLeft:10 }}>
+        <DialogContent
+          style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: 10,
+              height: "auto",
+              width: "100%",
+            }}
+          >
+            {/* Header */}
             <div style={{ display: "flex", alignItems: "center" }}>
               <div
                 style={{
                   fontSize: "2rem",
-                  
-                  
                   fontWeight: 520,
                   color: "rgb(79, 79, 79)",
                   fontFamily: "Okra, Helvetica, sans-serif",
-                  marginBottom:15
+                  marginBottom: 20,
                 }}
               >
-               Login
+                Login
               </div>
-              <div style={{ marginLeft: "auto", cursor: "pointer" }}>
+              <div
+                style={{ marginLeft: "auto", cursor: "pointer", marginBottom: 20 }}
+              >
                 <CloseIcon onClick={handleCloseDialog} />
               </div>
             </div>
 
-            <div >
-              
-             
+            {/* Form */}
+            <div>
               <TextField
-                onFocus={() => handleError("mobileno", "")}
-                error={!!error.mobileno}
-                helperText={error.mobileno}
-                onChange={(e) => setMobileno(e.target.value)}
+                onFocus={() => handleError("identifier", "")}
+                error={!!error.identifier}
+                helperText={error.identifier}
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
                 fullWidth
-                 value={mobileno}
-                label="Phone Number"
-                type="text"
+                label="Email or Phone Number"
                 sx={{ marginBottom: 2 }}
               />
+
+              <TextField
+                onFocus={() => handleError("password", "")}
+                error={!!error.password}
+                helperText={error.password}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                fullWidth
+                label="Password"
+                type="password"
+                sx={{ marginBottom: 2 }}
+              />
+
+              {/* Checkbox */}
               <div style={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
-                <Checkbox onFocus={() => handleError("checked", "")}
-                error={!!error.checked}
-                helperText={error.checked} value={checked} checked={checked} onChange={handleChange} style={{ color: "red" }} />
+                <Checkbox
+                  checked={checked}
+                  onChange={(e) => setChecked(e.target.checked)}
+                  onFocus={() => handleError("checked", "")}
+                  style={{ color: "red" }}
+                />
                 <span>
-                  I agree to astrologer{" "}
-                  <span style={{ color: "red", cursor: "pointer" }}>Terms of Service,</span>{" "}
-                  <span style={{ color: "red", cursor: "pointer" }}>Privacy Policy</span> and{" "}
-                  <span style={{ color: "red", cursor: "pointer" }}>Content Policies</span>
+                  I agree to{" "}
+                  <span style={{ color: "red", cursor: "pointer" }}>
+                    Terms of Service,
+                  </span>{" "}
+                  <span style={{ color: "red", cursor: "pointer" }}>
+                    Privacy Policy
+                  </span>{" "}
+                  and{" "}
+                  <span style={{ color: "red", cursor: "pointer" }}>
+                    Content Policies
+                  </span>
                 </span>
               </div>
               {!!error.checked && (
                 <div style={{ color: "red", marginBottom: 16 }}>{error.checked}</div>
               )}
 
+              {/* Login button */}
               <Button
                 variant="contained"
                 fullWidth
-                sx={{ backgroundColor: "#F39C12", color: "#fff", height: 45,mt:2 }}
+                sx={{
+                  backgroundColor: "#E53935",
+                  color: "#fff",
+                  height: 45,
+                  mt: 2,
+                  fontWeight: 500,
+                }}
                 onClick={handleSubmit}
               >
-                Get Otp
+                Login
               </Button>
-            </div>
 
-            
-<div style={{width:'95%',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
-<Button variant="contained" sx={{ backgroundColor: "white", color: "#000", height: 45, width: '100%',margin:3,fontSize:13,textTransform:'none',fontWeight:530 }}>
-        <img src={gmail} style={{width:'3%',marginRight:10}} />   Continue with Email
-          </Button>
- <Button variant="contained" sx={{ backgroundColor: "white", color: "#000", height: 45, width: '100%',fontSize:13,textTransform:'none',fontWeight:530 ,marginBottom:5}}>
- <img src={google} style={{width:'3%',marginRight:10}} />     Sign in With Google
-          </Button>
+              {/* Divider */}
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "20px 0",
+                }}
+              >
+                <div
+                  style={{
+                    width: "45%",
+                    border: "0.5px solid #dcdcdc",
+                    marginRight: 10,
+                  }}
+                ></div>
+                <div style={{ color: "grey", fontSize: 16 }}>or</div>
+                <div
+                  style={{
+                    width: "45%",
+                    border: "0.5px solid #dcdcdc",
+                    marginLeft: 10,
+                  }}
+                ></div>
+              </div>
 
-                      <div style={{ width: "100%", height: 0, border: "0.1px solid #dcdcdc", margin: "10px 10px 10px 10px" }}></div>
+              {/* Email & Google buttons */}
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "white",
+                  color: "#000",
+                  height: 45,
+                  width: "100%",
+                  fontSize: 14,
+                  textTransform: "none",
+                  fontWeight: 530,
+                  marginBottom: 2,
+                  boxShadow: "0 0 3px rgba(0,0,0,0.2)",
+                }}
+              >
+                <img src={gmail} alt="Gmail" style={{ width: "4%", marginRight: 10 }} />
+                Continue with Email
+              </Button>
+
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "white",
+                  color: "#000",
+                  height: 45,
+                  width: "100%",
+                  fontSize: 14,
+                  textTransform: "none",
+                  fontWeight: 530,
+                  marginBottom: 2,
+                  boxShadow: "0 0 3px rgba(0,0,0,0.2)",
+                }}
+              >
+                <img src={google} alt="Google" style={{ width: "4%", marginRight: 10 }} />{" "}
+                Sign in with Google
+              </Button>
+
+              <div style={{ width: "100%", height: 0, border: "0.1px solid #dcdcdc", margin: "10px 10px 10px 10px" }}></div>
 
                     <div style={{width:'90%',display:'flex',alignItems:'center',justifyContent:'flex-start',marginRight:'auto' }}>
                     
                     <div style={{color:'rgb(54, 54, 54)'}}>
-                    New to Astrologer?
+                    New to EwaysService?
                     </div>
 
                     <div style={{color:'red',cursor:'pointer',marginLeft:10}}>
                      Create Account
                     </div>
-                    </div>
 
                     </div>
+
+            </div>
           </div>
-         
-         </div>
         </DialogContent>
       </Dialog>
-<div >
-  <SweetAlert2 {...swalProps} />
-</div>
-
     </>
   );
 }
