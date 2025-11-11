@@ -279,7 +279,7 @@ const [password, setPassword] = useState("");
                 <Button
                   variant="contained"
                   fullWidth
-                  sx={{ backgroundColor: "#E53935", color: "#fff", height: 45, mt: 3 }}
+                  sx={{ backgroundColor: "#00a8ff", color: "#fff", height: 45, mt: 3 }}
                   onClick={handleSubmit}
                 >
                   Create account
@@ -329,6 +329,7 @@ const [password, setPassword] = useState("");
                   Sign in with Google
                 </Button>
               </div>
+              
             </div>
          
         </DialogContent>

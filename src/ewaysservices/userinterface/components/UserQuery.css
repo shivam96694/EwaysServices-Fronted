@@ -137,3 +137,26 @@
     text-align: center;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+
+
+.send-btn:hover {
+  background-color: #0092e6;
+}
+

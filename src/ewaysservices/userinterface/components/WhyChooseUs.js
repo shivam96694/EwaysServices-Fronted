@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSmile, FaShieldAlt, FaCogs, FaBrain, FaUsersCog, FaHandsHelping, FaDollarSign, FaHandshake } from "react-icons/fa";
-
+import { Paper } from "@mui/material";
 export default function WhyChooseUs() {
   const items = [
     {
@@ -66,6 +66,7 @@ export default function WhyChooseUs() {
 
       <div
         style={{
+        
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           gap: "30px",
@@ -77,6 +78,8 @@ export default function WhyChooseUs() {
           <div
             key={index}
             style={{
+               width:'82%',
+               height:'82%',
               backgroundColor: "#fff",
               borderRadius: "10px",
               padding: "25px",

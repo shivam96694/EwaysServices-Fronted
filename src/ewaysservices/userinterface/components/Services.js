@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getData } from "../../../services/FetchApiServices";
+import { getData } from "../../services/FetchApiServices";
 
 function Services() {
   const [services, setServices] = useState([]);

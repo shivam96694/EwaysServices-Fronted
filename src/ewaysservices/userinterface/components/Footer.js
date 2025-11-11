@@ -145,7 +145,7 @@ export default function Footer()
 
 <Grid display={'flex'} alignContent={'center'} justifyContent={'center'} flexDirection={'row'} marginRight={'auto'} >
 
-<Grid  size={2} marginRight={'auto'}  >
+<Grid  size={4} marginRight={10}  >
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10}>ABOUT EWAYSSERVICES</Grid>
 <Grid color={"grey"}  fontSize={matches?7:14} marginBottom={0.5}>Who We Are </Grid>
@@ -158,7 +158,7 @@ export default function Footer()
 
 </Grid>
 
-<Grid size={2} marginRight={'auto'}>
+<Grid size={4} marginRight={10}>
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10} >FOR SERVICES</Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Partner With us </Grid>
@@ -166,7 +166,7 @@ export default function Footer()
 
 </Grid>
 
-<Grid size={2} marginRight={'auto'}>
+<Grid size={4} marginRight={'auto'}>
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} >LEARN MORE</Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Privacy </Grid>
@@ -180,8 +180,8 @@ export default function Footer()
 </div>}
 
 <div style={{width:matches?'100%':'25%',display:'flex',justifyContent:'center',alignItems:'center'}}> 
-<Grid size={2} marginRight={'auto'} height={matches?135:225}>
-<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} >SOCIAL LINKS</Grid>
+<Grid size={3} marginRight={'auto'} height={matches?135:225}>
+<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} marginTop={3} letterSpacing={2} >SOCIAL LINKS</Grid>
 <div style={{display:'flex',marginBottom:10}}>
 <Grid><img src={ld} style={{width:matches?15:20,marginRight:8}}/></Grid>
 <Grid><img src={intragram} style={{width:matches?15:20,marginRight:8}}/></Grid>

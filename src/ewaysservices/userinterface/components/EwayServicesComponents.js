@@ -18,7 +18,7 @@ import crmIcon from "../../../assets/progress.png";
 import paymentIcon from "../../../assets/success.png";
 import consultingIcon from "../../../assets/doctor-patient.png";
 
-export default function AstrologyServices() {
+export default function EwaysServiceComponents() {
 
   const data = [
   {
