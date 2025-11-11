@@ -5,9 +5,9 @@ import WhyChooseUs from "../WhyChooseUs";
 import UserQuery from "../UserQuery";
 import Header from "../Header";
 import logo from '../../../../assets/ChatGPT Image Nov 6, 2025, 01_53_39 PM.png';
-import EwaysServicesComponents from '../EwayServicesComponents';
 import Footer from "../Footer";
-export default function HomePage()
+import AboutUsComponents from "../AboutUsComponents";
+export default function AboutUsPage()
 {  
 
     return (<div >
@@ -21,7 +21,7 @@ export default function HomePage()
         </div>
 
           <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-    <EwaysServicesComponents   />
+    <AboutUsComponents   />
     </div>
 
  <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>

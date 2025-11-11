@@ -1,35 +1,65 @@
 import axios from "axios";
 
+// ✅ Base backend URL (change when deploying)
 const serverURL = "http://localhost:5000";
 
+// =======================
+// 🔹 GET Request
+// =======================
 async function getData(url) {
   try {
     const response = await axios.get(`${serverURL}/${url}`);
-    return response.data;
-  } catch (e) {
-    console.error("API GET Error:", e);
-    return { data: [], message: "Backend error", status: false };
-  }
-}
-async function postData(url, body) {
-  try {
-    const response = await axios.post(`${serverURL}/${url}`, body);
-    return response.data; // ✅ normal 2xx response
+    return response.data; // ✅ Backend JSON
   } catch (error) {
-    console.error("API POST Error:", error);
+    console.error("API GET Error:", error);
 
-    // ✅ If backend sent a response (like 400/409), return that JSON
+    // ✅ Return backend error message if exists
     if (error.response && error.response.data) {
       return error.response.data;
     }
 
-    // Otherwise network error
+    // ✅ Otherwise network/server issue
+    return { success: false, error: "Network or backend connection issue" };
+  }
+}
+
+// =======================
+// 🔹 POST Request
+// =======================// =======================
+
+ async function postData(url, body) {
+  try {
+    // Detect if the body is FormData (used for file upload)
+    const isFormData = body instanceof FormData;
+
+    const response = await axios.post(`${serverURL}/${url}`, body, {
+      headers: isFormData
+        ? {} // ✅ Let Axios set Content-Type automatically for FormData
+        : { "Content-Type": "application/json" },
+    });
+
+    return response.data; // ✅ Normal 2xx response
+  } catch (error) {
+    console.error("API POST Error:", error);
+
+    // ✅ If backend sent structured JSON (ex: { success: false, error: '...' })
+    if (error.response && error.response.data) {
+      return error.response.data;
+    }
+
+    // ✅ Otherwise, fallback error
     return { success: false, error: "Backend error or network issue" };
   }
 }
 
+
+
+// =======================
+// 🔹 OTP Generator (6-digit)
+// =======================
 function generateOtp() {
-  return parseInt(Math.random() * 899999 + 100000);
+  return Math.floor(100000 + Math.random() * 900000);
 }
 
+// ✅ Export functions
 export { serverURL, getData, postData, generateOtp };

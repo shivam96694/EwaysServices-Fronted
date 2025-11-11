@@ -222,7 +222,7 @@ const dispatch = useDispatch();
                 variant="contained"
                 fullWidth
                 sx={{
-                  backgroundColor: "#E53935",
+                  backgroundColor: "#00a8ff",
                   color: "#fff",
                   height: 45,
                   mt: 2,

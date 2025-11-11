@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { Paper, Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-export default function AstrologyCard({ item }) {
+export default function EwaysServiceComponentsCard({ item }) {
   const [getScale, setScale] = useState('scale(1)');
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    // Convert title to slug like "web-development"
+    const slug = item.title.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/servicepage/${slug}`, { state: item });
+  };
   return (
-    <Paper 
+    <Paper
+          onClick={handleClick} 
       onMouseLeave={() => setScale('scale(1)')} 
       onMouseOver={() => setScale("scale(1.05)")}
       style={{
