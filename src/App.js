@@ -7,6 +7,7 @@ import ServicePage from "./ewaysservices/userinterface/components/screens/Servic
 import CareersPage from "./ewaysservices/userinterface/components/screens/CarrersPage";
 import AboutUsPage from "./ewaysservices/userinterface/components/screens/AboutUsPage";
 import ContactComponentsPage from "./ewaysservices/userinterface/components/screens/ContactPage";
+import BlogPageComponents from "./ewaysservices/userinterface/components/BlogPageComponents";
 function App() {
   return (
     <div style={{fontFamily:'Open Sans'}}>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/career" element={<CareersPage />} />
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/contact" element={<ContactComponentsPage />} />
+<Route path="/blog" element={<BlogPageComponents />} />
 
                </Routes>
       </Router>

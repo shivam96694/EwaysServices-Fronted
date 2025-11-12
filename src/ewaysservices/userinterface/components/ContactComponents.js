@@ -36,7 +36,7 @@ export default function ContactComponents() {
         icon: "warning",
         timer: 2000,
         toast: true,
-        position: "top-end",
+        
         showConfirmButton: false,
       });
       return;
@@ -52,7 +52,7 @@ export default function ContactComponents() {
           icon: "success",
           timer: 2500,
           toast: true,
-          position: "top-end",
+        
           showConfirmButton: false,
         });
         setForm({ name: "", email: "", phone: "", message: "" });
@@ -63,7 +63,6 @@ export default function ContactComponents() {
           icon: "error",
           timer: 2500,
           toast: true,
-          position: "top-end",
           showConfirmButton: false,
         });
       }
@@ -74,7 +73,6 @@ export default function ContactComponents() {
         icon: "error",
         timer: 2500,
         toast: true,
-        position: "top-end",
         showConfirmButton: false,
       });
       console.error("Contact form error:", error);
@@ -104,15 +102,16 @@ export default function ContactComponents() {
       </Box>
 
       {/* Contact Layout */}
-      <Grid container spacing={5} alignItems="stretch">
+      <Grid container spacing={5} alignItems="stretch" sx={{marginBottom:20}}>
         {/* Contact Form */}
-        <Grid item xs={12} md={7}>
+        <Grid item xs={12} md={7} >
           <Paper
             elevation={3}
             sx={{
               p: 5,
               borderRadius: 4,
               height: "100%",
+              
             }}
           >
             <Typography
@@ -128,7 +127,7 @@ export default function ContactComponents() {
             </Typography>
             <form onSubmit={handleSubmit}>
               <Grid container spacing={3}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} size={4}>
                   <TextField
                     fullWidth
                     label="Full Name"
@@ -138,7 +137,7 @@ export default function ContactComponents() {
                     required
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={6} size={4}>
                   <TextField
                     fullWidth
                     label="Email Address"
@@ -149,7 +148,7 @@ export default function ContactComponents() {
                     required
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} size={4}>
                   <TextField
                     fullWidth
                     label="Phone Number"
@@ -159,7 +158,7 @@ export default function ContactComponents() {
                     required
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} size={12}>
                   <TextField
                     fullWidth
                     label="Your Message"
@@ -193,7 +192,7 @@ export default function ContactComponents() {
         </Grid>
 
         {/* Contact Info */}
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={5} sx={{marginTop:10}}>
           <Paper
             elevation={3}
             sx={{
