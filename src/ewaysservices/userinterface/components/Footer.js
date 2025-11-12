@@ -1,4 +1,4 @@
-
+import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/eway2.png"
 import flag from "../../../assets/indianflag.jpg"
 import flag2 from "../../../assets/uae.webp"
@@ -21,6 +21,11 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useState } from "react"
 export default function Footer()
 {   
+const navigate = useNavigate();
+const handleNavigation = (path) => {
+  navigate(path);
+  window.scrollTo(0, 0); // optional: scroll to top
+};
 
   var theme=useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('md'));
@@ -148,13 +153,13 @@ export default function Footer()
 <Grid  size={4} marginRight={10}  >
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10}>ABOUT EWAYSSERVICES</Grid>
-<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={0.5}>Who We Are </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Blog </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Who With Us </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Investor Relations </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Report Fraud</Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Press Kit </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Contact Us </Grid>
+<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/about")} >Who We Are </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/blog")}>Blog </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/team")}>Who With Us </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/investor")}>Investor Relations </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/report-fraud")}>Report Fraud</Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/press")}>Press Kit </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/contact")}>Contact Us </Grid>
 
 </Grid>
 
