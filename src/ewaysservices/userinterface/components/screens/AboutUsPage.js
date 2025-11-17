@@ -16,9 +16,7 @@ export default function AboutUsPage()
     <Header   />
     </div>
 
- <div style={{display:'flex',alignItems:'center',justifyContent:'center',margintop:40}}>
-        <img src={logo} style={{objectFit:'cover',width:'90%',height:'650px'}} />
-        </div>
+
 
           <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <AboutUsComponents   />

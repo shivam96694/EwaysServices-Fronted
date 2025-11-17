@@ -6,8 +6,10 @@ import UserQuery from "../UserQuery";
 import Header from "../Header";
 import logo from '../../../../assets/ChatGPT Image Nov 6, 2025, 01_53_39 PM.png';
 import Footer from "../Footer";
-import ContactComponents from "../ContactComponents";
-export default function ContactComponentsPage()
+import BlogPageComponents from '../BlogPageComponents'
+import { useLocation, useParams, Link } from "react-router-dom";
+
+export default function BlogPage()
 {  
 
     return (<div >
@@ -19,7 +21,7 @@ export default function ContactComponentsPage()
  
 
           <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
-    <ContactComponents   />
+    <BlogPageComponents   />
     </div>
 
  <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
