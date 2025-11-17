@@ -85,10 +85,11 @@ export default function ContactComponents() {
         py: 8,
         px: { xs: 3, md: 10 },
         background: "linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%)",
+      
       }}
     >
       {/* Header */}
-      <Box textAlign="center" mb={6}>
+      <Box textAlign="center" mb={6} >
         <Typography
           variant="h4"
           sx={{ fontWeight: "bold", color: "#00a8ff", mb: 1 }}
@@ -102,9 +103,9 @@ export default function ContactComponents() {
       </Box>
 
       {/* Contact Layout */}
-      <Grid container spacing={5} alignItems="stretch" sx={{marginBottom:20}}>
+      <Grid container spacing={5} alignItems="stretch" sx={{marginBottom:20,marginLeft:10}} >
         {/* Contact Form */}
-        <Grid item xs={12} md={7} >
+        <Grid item xs={12} md={7}   >
           <Paper
             elevation={3}
             sx={{
@@ -218,7 +219,7 @@ export default function ContactComponents() {
               <LocationOnIcon />
               <Typography>
                 Eways Services Pvt. Ltd.  
-                <br /> Sector 63, Noida, Uttar Pradesh, India
+                <br /> City Center, Gwalior, Madhya Pradesh, India
               </Typography>
             </Box>
 
@@ -243,6 +244,8 @@ export default function ContactComponents() {
           overflow: "hidden",
           height: 350,
           boxShadow: "0 4px 25px rgba(0,0,0,0.1)",
+          ml:10,
+         width:'90%'
         }}
       >
         <iframe

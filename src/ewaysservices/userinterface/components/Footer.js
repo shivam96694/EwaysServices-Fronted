@@ -145,39 +145,100 @@ const handleNavigation = (path) => {
       </div>
 
       </div>
-<div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center',marginTop:20}}>
+<div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center',marginTop:10}}>
 {matches?'':<div style={{width:matches?'74%':'70%',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'auto'}}>
 
-<Grid display={'flex'} alignContent={'center'} justifyContent={'center'} flexDirection={'row'} marginRight={'auto'} >
+<Grid display={'flex'} alignContent={'center'} justifyContent={'center'} flexDirection={'row'} marginRight={'auto'} marginBottom={7.5} >
 
 <Grid  size={4} marginRight={10}  >
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10}>ABOUT EWAYSSERVICES</Grid>
-<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/about")} >Who We Are </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/blog")}>Blog </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/team")}>Who With Us </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/investor")}>Investor Relations </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/report-fraud")}>Report Fraud</Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/press")}>Press Kit </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/contact")}>Contact Us </Grid>
+<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={1}  ABOUT EWAYSSERVICES >Who We Are </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/blog")}>Blog </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/team")}>Who With Us </Grid>
+<Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/contact")}>Contact Us </Grid>
 
 </Grid>
-
 <Grid size={4} marginRight={10}>
-
-<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10} >FOR SERVICES</Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Partner With us </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Apps For You </Grid>
-
+  <Grid
+    fontWeight={matches ? 700 : 599}
+    fontSize={matches ? 7 : 14}
+    marginBottom={2}
+    letterSpacing={2}
+    marginRight={10}
+  >
+    FOR SERVICES
+  </Grid>
+  <Grid
+    color={"grey"}
+    fontSize={matches ? 7 : 14}
+    marginBottom={1}
+    sx={{
+      cursor: "pointer",
+      "&:hover": { color: "#00a8ff", textDecoration: "underline" },
+    }}
+    onClick={() => handleNavigation("/partner")}
+  >
+    Partner With Us
+  </Grid>
+  <Grid
+    color={"grey"}
+    fontSize={matches ? 7 : 14}
+    marginBottom={1}
+    sx={{
+      cursor: "pointer",
+      "&:hover": { color: "#00a8ff", textDecoration: "underline" },
+    }}
+    onClick={() => handleNavigation("/apps")}
+  >
+    Apps For You
+  </Grid>
 </Grid>
-
-<Grid size={4} marginRight={'auto'}>
-
-<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} >LEARN MORE</Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Privacy </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Security </Grid>
-<Grid color={"grey"} fontSize={matches?7:14} marginBottom={0.5}>Teams </Grid>
-
+<Grid size={4} marginRight={"auto"}>
+  <Grid
+    fontWeight={matches ? 700 : 599}
+    fontSize={matches ? 7 : 14}
+    marginBottom={2}
+    letterSpacing={2}
+  >
+    LEARN MORE
+  </Grid>
+  <Grid
+    color={"grey"}
+    fontSize={matches ? 7 : 14}
+    marginBottom={1}
+    sx={{
+      cursor: "pointer",
+      "&:hover": { color: "#00a8ff", textDecoration: "underline" },
+    }}
+    onClick={() => handleNavigation("/privacy")}
+  >
+    Privacy
+  </Grid>
+  <Grid
+    color={"grey"}
+    fontSize={matches ? 7 : 14}
+    marginBottom={1}
+    sx={{
+      cursor: "pointer",
+      "&:hover": { color: "#00a8ff", textDecoration: "underline" },
+    }}
+    onClick={() => handleNavigation("/security")}
+  >
+    Security
+  </Grid>
+  <Grid
+    color={"grey"}
+    fontSize={matches ? 7 : 14}
+    marginBottom={1}
+    sx={{
+      cursor: "pointer",
+      "&:hover": { color: "#00a8ff", textDecoration: "underline" },
+    }}
+    onClick={() => handleNavigation("/Policies")}
+  >
+    Policies
+  </Grid>
 </Grid>
 
 </Grid>
@@ -186,7 +247,7 @@ const handleNavigation = (path) => {
 
 <div style={{width:matches?'100%':'25%',display:'flex',justifyContent:'center',alignItems:'center'}}> 
 <Grid size={3} marginRight={'auto'} height={matches?135:225}>
-<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} marginTop={3} letterSpacing={2} >SOCIAL LINKS</Grid>
+<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} marginTop={2.2} letterSpacing={2} >SOCIAL LINKS</Grid>
 <div style={{display:'flex',marginBottom:10}}>
 <Grid><img src={ld} style={{width:matches?15:20,marginRight:8}}/></Grid>
 <Grid><img src={intragram} style={{width:matches?15:20,marginRight:8}}/></Grid>
