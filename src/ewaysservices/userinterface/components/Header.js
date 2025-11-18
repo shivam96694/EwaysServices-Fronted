@@ -106,10 +106,50 @@ const dispatch = useDispatch();
                 onMouseLeave: handleServicesClose,
               }}
             >
-              <MenuItem onClick={handleServicesClose}>Web Development</MenuItem>
-              <MenuItem onClick={handleServicesClose}>App Development</MenuItem>
-              <MenuItem onClick={handleServicesClose}>SEO Optimization</MenuItem>
-            </Menu>
+            <MenuItem
+  onClick={() => {
+    handleServicesClose();
+    document.getElementById("services-section")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+>
+  Web Development
+</MenuItem>
+
+<MenuItem
+  onClick={() => {
+    handleServicesClose();
+    document.getElementById("services-section")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+>
+  App Development
+</MenuItem>
+
+<MenuItem
+  onClick={() => {
+    handleServicesClose();
+    document.getElementById("services-section")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+>
+  SEO Optimization
+</MenuItem>
+
+<MenuItem
+  onClick={() => {
+    handleServicesClose();
+    document.getElementById("services-section")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+>
+  Other Services
+</MenuItem>
+</Menu>
           </Box>
 
           <NavItem title="Career" href="/career" />

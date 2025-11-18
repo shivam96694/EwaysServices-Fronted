@@ -20,7 +20,7 @@ export default function HomePage()
         <img src={logo} style={{objectFit:'cover',width:'90%',height:'650px'}} />
         </div>
 
-          <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+          <div id="services-section" style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <EwaysServicesComponents   />
     </div>
 
