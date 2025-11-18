@@ -11,6 +11,7 @@ import BlogPage from "./ewaysservices/userinterface/components/screens/BlogPage"
 import WhoWithUsPage from "./ewaysservices/userinterface/components/screens/WhoWithUsPage";
 import AppPage from "./ewaysservices/userinterface/components/screens/AppPage";
 import PartnerPage from "./ewaysservices/userinterface/components/screens/PartnerPage";
+import LegalPage from "./ewaysservices/userinterface/components/screens/LegalPage";
 function App() {
   return (
     <div style={{fontFamily:'Open Sans'}}>
@@ -28,7 +29,7 @@ function App() {
 
 <Route path="/partner" element={<PartnerPage />} />
 <Route path="/apps" element={<AppPage />} />
-
+<Route path="/legal" element={<LegalPage />} />
                </Routes>
       </Router>
 
