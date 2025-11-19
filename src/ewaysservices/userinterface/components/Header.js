@@ -110,7 +110,7 @@ const dispatch = useDispatch();
   onClick={() => {
     handleServicesClose();
     document.getElementById("services-section")?.scrollIntoView({
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   }}
 >
