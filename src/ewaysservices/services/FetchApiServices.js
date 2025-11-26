@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ✅ Base backend URL (change when deploying)
-const serverURL = "http://localhost:5000";
+const serverURL = "https://ewaysservices-backend.onrender.com";
 
 // =======================
 // 🔹 GET Request
