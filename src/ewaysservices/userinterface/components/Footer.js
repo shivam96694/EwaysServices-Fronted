@@ -153,7 +153,7 @@ const handleNavigation = (path) => {
 <Grid  size={4} marginRight={10}  >
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10}>ABOUT EWAYSSERVICES</Grid>
-<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={1}  ABOUT EWAYSSERVICES >Who We Are </Grid>
+<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={1}  sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/about")} >Who We Are </Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/blog")}>Blog </Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/team")}>Who With Us </Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/contact")}>Contact Us </Grid>
