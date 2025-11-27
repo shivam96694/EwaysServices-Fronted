@@ -146,14 +146,23 @@ const handleNavigation = (path) => {
 
       </div>
 <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center',marginTop:10}}>
-{matches?'':<div style={{width:matches?'74%':'70%',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'auto'}}>
+{matches?
+<div style={{width:'100%'}}>
+<Grid fontWeight={matches?700:599}  fontSize={matches?9:14} marginBottom={2} letterSpacing={2} marginRight={10}>ABOUT EWAYSSERVICES</Grid>
+<Grid color={"grey"}  fontSize={matches?12:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/about")}  >Who We Are </Grid>
+<Grid color={"grey"} fontSize={matches?12:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/blog")}>Blog </Grid>
+<Grid color={"grey"} fontSize={matches?12:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/team")}>Who With Us </Grid>
+<Grid color={"grey"} fontSize={matches?12:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/contact")}>Contact Us </Grid>
+</div>
+
+:<div style={{width:matches?'74%':'70%',display:'flex',justifyContent:'center',alignItems:'center',marginRight:'auto'}}>
 
 <Grid display={'flex'} alignContent={'center'} justifyContent={'center'} flexDirection={'row'} marginRight={'auto'} marginBottom={7.5} >
 
 <Grid  size={4} marginRight={10}  >
 
 <Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} letterSpacing={2} marginRight={10}>ABOUT EWAYSSERVICES</Grid>
-<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={1}  sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/about")} >Who We Are </Grid>
+<Grid color={"grey"}  fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/about")}  >Who We Are </Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}  onClick={() => handleNavigation("/blog")}>Blog </Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }} onClick={() => handleNavigation("/team")}>Who With Us </Grid>
 <Grid color={"grey"} fontSize={matches?7:14} marginBottom={1} sx={{ cursor: "pointer", "&:hover": { color: "#00a8ff", textDecoration: "underline" } }}   onClick={() => handleNavigation("/contact")}>Contact Us </Grid>
@@ -241,18 +250,18 @@ const handleNavigation = (path) => {
 
 <div style={{width:matches?'100%':'25%',display:'flex',justifyContent:'center',alignItems:'center'}}> 
 <Grid size={3} marginRight={'auto'} height={matches?135:225}>
-<Grid fontWeight={matches?700:599}  fontSize={matches?7:14} marginBottom={2} marginTop={2.2} letterSpacing={2} >SOCIAL LINKS</Grid>
+<Grid fontWeight={matches?'bolder':599}  fontSize={matches?9:14} marginBottom={2} marginTop={matches?1.5:2.2} letterSpacing={2} >SOCIAL LINKS</Grid>
 <div style={{display:'flex',marginBottom:10}}>
-<Grid><img src={ld} style={{width:matches?15:20,marginRight:8}}/></Grid>
-<Grid><img src={intragram} style={{width:matches?15:20,marginRight:8}}/></Grid>
-<Grid><img src={x} style={{width:matches?15:20}}/></Grid>
-<Grid><img src={yt} style={{width:matches?25:35,marginTop:matches?-3:-8}}/></Grid>
-<Grid><img src={fb} style={{width:matches?15:20}}/></Grid>
+<Grid><img src={ld} style={{width:matches?17:20,marginRight:8}}/></Grid>
+<Grid><img src={intragram} style={{width:matches?17:20,marginRight:8}}/></Grid>
+<Grid><img src={x} style={{width:matches?17:20}}/></Grid>
+<Grid><img src={yt} style={{width:matches?32:35,marginTop:matches?-6:-8}}/></Grid>
+<Grid><img src={fb} style={{width:matches?17:20}}/></Grid>
 </div>
 
 <div>
-  <Grid><img src={ps} style={{width:matches?90:130,marginRight:8,marginBottom:10}}/></Grid>
-  <Grid><img src={as} style={{width:matches?90:130,marginRight:8}}/></Grid>
+  <Grid><img src={ps} style={{width:matches?100:130,marginRight:8,marginBottom:10}}/></Grid>
+  <Grid><img src={as} style={{width:matches?100:130,marginRight:8,marginBottom:10}}/></Grid>
 </div>
 
 </Grid>

@@ -7,8 +7,13 @@ import Header from "../Header";
 import logo from '../../../../assets/ChatGPT Image Nov 6, 2025, 01_53_39 PM.png';
 import EwaysServicesComponents from '../EwayServicesComponents';
 import Footer from "../Footer";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 export default function HomePage()
-{  
+{    const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
 
     return (<div >
 
@@ -17,7 +22,7 @@ export default function HomePage()
     </div>
 
  <div style={{display:'flex',alignItems:'center',justifyContent:'center',margintop:40}}>
-        <img src={logo} style={{objectFit:'cover',width:'90%',height:'650px'}} />
+        <img src={logo} style={{objectFit:matches?'contain':'cover',width:'90%',height:matches?'250px':'650px'}} />
         </div>
 
           <div id="services-section" style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>

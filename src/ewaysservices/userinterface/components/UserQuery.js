@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import "./UserQuery.css";
 import Swal from "sweetalert2";
 import { postData } from "../../services/FetchApiServices"; // your existing API helper
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function UserQuery() {
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -113,7 +120,7 @@ console.log("Backend response:", res);
   return (
     <div className="userquery-container">
       {/* LEFT SIDE */}
-      <div className="userquery-left">
+      <div className="userquery-left" style={{width:matches?'85%':'',marginBottom:matches?5:''}}>
         <h2>Let’s Talk about</h2>
         <ul>
           <li>We are open to talk</li>
@@ -123,7 +130,7 @@ console.log("Backend response:", res);
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="userquery-right">
+      <div className="userquery-right" style={{width:matches?'81%':'',marginTop:matches?5:''}}>
         <h2>Got a question? We would love to hear from you.</h2>
         <p>Send us your message, we will respond as soon as possible.</p>
 

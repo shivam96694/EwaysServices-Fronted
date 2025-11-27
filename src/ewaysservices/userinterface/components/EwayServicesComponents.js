@@ -17,8 +17,12 @@ import erpIcon from "../../../assets/blended-learning.png";
 import crmIcon from "../../../assets/progress.png";
 import paymentIcon from "../../../assets/success.png";
 import consultingIcon from "../../../assets/doctor-patient.png";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function EwaysServiceComponents() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   const data = [
   {
@@ -78,7 +82,7 @@ export default function EwaysServiceComponents() {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow:matches?1: 4,
     slidesToScroll: 1,
     arrows: false,
     responsive: [
@@ -98,7 +102,7 @@ export default function EwaysServiceComponents() {
           EWAYS SERVICES
         </Typography>
 
-        <Box sx={{ position: "relative" }}>
+        <Box sx={{ position: "relative",marginLeft:matches?6:0  }}>
           {window.innerWidth >= 600 && (
             <Box
               onClick={handleLeft}
@@ -116,6 +120,7 @@ export default function EwaysServiceComponents() {
                 alignItems: "center",
                 justifyContent: "center",
                 boxShadow: "2px 2px 6px rgba(0,0,0,0.2)",
+                
               }}
             >
               <KeyboardArrowLeftIcon />
