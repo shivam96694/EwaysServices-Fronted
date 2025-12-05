@@ -8,13 +8,9 @@ import logo from '../../../../assets/ChatGPT Image Nov 6, 2025, 01_53_39 PM.png'
 import Footer from "../Footer";
 import BlogPageComponents from '../BlogPageComponents'
 import { useLocation, useParams, Link } from "react-router-dom";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 
 export default function BlogPage()
-{    const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-
+{  
 
     return (<div >
 
@@ -28,11 +24,11 @@ export default function BlogPage()
     <BlogPageComponents   />
     </div>
 
- <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+ <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <WhyChooseUs  />
     </div>
 
-      <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <UserQuery  />
     </div>
   

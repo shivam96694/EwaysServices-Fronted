@@ -7,13 +7,8 @@ import Header from "../Header";
 import logo from '../../../../assets/ChatGPT Image Nov 6, 2025, 01_53_39 PM.png';
 import Footer from "../Footer";
 import ContactComponents from "../ContactComponents";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-
 export default function ContactComponentsPage()
-{    const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-
+{  
 
     return (<div >
 
@@ -31,7 +26,7 @@ export default function ContactComponentsPage()
     <WhyChooseUs  />
     </div>
 
-      <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <UserQuery  />
     </div>
   
@@ -39,7 +34,7 @@ export default function ContactComponentsPage()
 
 
 {
-    <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <Footer />
 </div>
 } 

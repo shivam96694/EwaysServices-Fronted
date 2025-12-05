@@ -22,10 +22,10 @@ export default function HomePage()
     </div>
 
  <div style={{display:'flex',alignItems:'center',justifyContent:'center',margintop:40}}>
-        <img src={logo} style={{objectFit:matches?'contain':'cover',width:'100%',height:matches?'250px':'650px'}} />
+        <img src={logo} style={{objectFit:matches?'contain':'cover',width:'90%',height:matches?'250px':'650px'}} />
         </div>
 
-          <div id="services-section" style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+          <div id="services-section" style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <EwaysServicesComponents   />
     </div>
 
@@ -33,7 +33,7 @@ export default function HomePage()
     <WhyChooseUs  />
     </div>
 
-      <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <UserQuery  />
     </div>
   
@@ -41,7 +41,7 @@ export default function HomePage()
 
 
 {
-    <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <Footer />
 </div>
 } 
