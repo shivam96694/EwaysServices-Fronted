@@ -2,11 +2,15 @@ import React from "react";
 import { useLocation, useParams, Link } from "react-router-dom";
 import { Box, Typography, Button, Divider } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export default function ServiceDetails() {
   const { serviceId } = useParams();
   const { state } = useLocation(); // data passed from navigation
   const service = state || {}; // fallback if not found
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
 
   // Fallback title if state is empty
   const title = service.title || serviceId.replace(/-/g, " ");

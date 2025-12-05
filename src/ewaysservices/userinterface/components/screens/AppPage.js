@@ -4,8 +4,14 @@ import UserQuery from "../UserQuery";
 import Header from "../Header";
 import Footer from "../Footer";
 import AppsComponents from "../AppsComponents";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 export default function AppPage()
 {  
+      const theme = useTheme();
+      const matches = useMediaQuery(theme.breakpoints.down("md"));
+    
 
     return (<div >
 
@@ -23,7 +29,7 @@ export default function AppPage()
     <WhyChooseUs  />
     </div>
 
-      <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+      <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <UserQuery  />
     </div>
   
@@ -31,7 +37,7 @@ export default function AppPage()
 
 
 {
-    <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <div style={{width:matches?'115%':'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
     <Footer />
 </div>
 } 
