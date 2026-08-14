@@ -22,7 +22,7 @@ import Login from "./Login";
 import Otp from "./Otp";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-
+import { useNavigate } from "react-router-dom";
 const Header = () => {
   // ===== STATE =====
   const [languageAnchorEl, setLanguageAnchorEl] = useState(null);
@@ -40,7 +40,7 @@ const Header = () => {
 
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+const navigate = useNavigate();
   // ===== HANDLERS =====
   const handleLanguageOpen = (event) =>
     setLanguageAnchorEl(event.currentTarget);
@@ -89,20 +89,11 @@ const Header = () => {
         <Button
          size="small"
           variant="outlined"
-          color="error"
-          onClick={() => {
-            dispatch({ type: "DELETE_USER" });
-            localStorage.removeItem("user");
-            Swal.fire({
-              title: "Logged out successfully!",
-              icon: "success",
-              timer: 2000,
-              toast: true,
-              showConfirmButton: false,
-            });
-          }}
+          
+           onClick={() => navigate("/profile")}
+
         >
-          Logout
+          Profile
         </Button>
       </div>
      
@@ -135,7 +126,7 @@ const Header = () => {
           />
           
             <div style={{fontSize:matches?16:22,fontWeight:matches?600:600,marginBottom:5}} >
-              EwaysServices
+              EwaysServices-RAMJI
             </div>
           
         </Box>

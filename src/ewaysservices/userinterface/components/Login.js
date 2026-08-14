@@ -7,13 +7,14 @@ import gmail from "../../../assets/gmail.png";
 import { postData } from "../../services/FetchApiServices"; // 👈 add this import
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import ForgotPassword from "../components/ForgetPassword";
 export default function Login({ loginOpen, setLoginOpen,setUserData }) {
   const [checked, setChecked] = useState(false);
   const [identifier, setIdentifier] = useState(""); // email or phone
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
 const dispatch = useDispatch();
-
+const [forgotOpen,setForgotOpen]=useState(false);
   // Close dialog
   const handleCloseDialog = () => {
     setLoginOpen(false);
@@ -190,6 +191,17 @@ const dispatch = useDispatch();
                 type="password"
                 sx={{ marginBottom: 2 }}
               />
+              <div
+    style={{
+        textAlign:"right",
+        color:"#1976d2",
+        cursor:"pointer",
+        marginBottom:15
+    }}
+      onClick={()=>setForgotOpen(true)}
+>
+    Forgot Password?
+</div>
 
               {/* Checkbox */}
               <div style={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
@@ -312,6 +324,10 @@ const dispatch = useDispatch();
                     </div>
 
             </div>
+            <ForgotPassword
+   open={forgotOpen}
+   setOpen={setForgotOpen}
+/>
           </div>
         </DialogContent>
       </Dialog>

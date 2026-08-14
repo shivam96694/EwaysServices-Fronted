@@ -1,0 +1,18 @@
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.left img{
+width:180px;
+}
+
+.right h1{
+font-size:70px;
+color:#0A6FB7;
+}
+
+.right p{
+font-size:20px;
+}

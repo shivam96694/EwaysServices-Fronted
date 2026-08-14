@@ -12,6 +12,9 @@ import WhoWithUsPage from "./ewaysservices/userinterface/components/screens/WhoW
 import AppPage from "./ewaysservices/userinterface/components/screens/AppPage";
 import PartnerPage from "./ewaysservices/userinterface/components/screens/PartnerPage";
 import LegalPage from "./ewaysservices/userinterface/components/screens/LegalPage";
+import ProfilePage from "./ewaysservices/userinterface/components/screens/ProfilePage";
+import ResetPassword from "./ewaysservices/userinterface/components/ResetPassword";
+import Hero from "./ewaysservices/userinterface/components/hero/Hero"
 function App() {
   return (
     <div style={{fontFamily:'Open Sans'}}>
@@ -30,6 +33,16 @@ function App() {
 <Route path="/partner" element={<PartnerPage />} />
 <Route path="/apps" element={<AppPage />} />
 <Route path="/legal" element={<LegalPage />} />
+<Route path="/profile" element={<ProfilePage />} />
+<Route
+   path="/reset-password"
+   element={<ResetPassword/>}
+/>
+<Route
+   path="/hero"
+   element={<Hero/>}
+/>
+
                </Routes>
       </Router>
 
