@@ -9,7 +9,7 @@ import EwaysServicesComponents from '../EwayServicesComponents';
 import Footer from "../Footer";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-
+import ScrollToTop from "../ScrollToTop";
 export default function HomePage()
 {    const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -45,6 +45,12 @@ export default function HomePage()
     <Footer />
 </div>
 } 
+
+{
+  <div style={{width:'100%',display:'flex',justifyContent:'center',alignItems:'center'}}>
+    <ScrollToTop />
+</div>
+}
 
     </div>)
 }

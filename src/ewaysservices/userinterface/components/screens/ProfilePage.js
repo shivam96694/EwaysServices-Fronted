@@ -284,9 +284,7 @@ console.log(user);
               fullWidth
               variant="outlined"
               startIcon={<EditIcon />}
-              onClick={() => {
-                // Edit Profile functionality later
-              }}
+             onClick={() => navigate("/edit-profile")}
               sx={{
                 borderRadius: 2,
                 padding: "10px 20px",

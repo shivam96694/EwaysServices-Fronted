@@ -70,9 +70,11 @@ const [forgotOpen,setForgotOpen]=useState(false);
   try {
     // ✅ send login data to backend
     const res = await postData("users/login", { identifier, password });
-
+console.log('res:',res);
     if (res.success) {
+      console.log("Before Save");
       setUserData(res.user);
+      console.log('resuser:',res.user)
       Swal.fire({
         title: "Login Successful!",
         text: `Welcome back ${res.user.username}! 🚀`,
@@ -84,11 +86,19 @@ const [forgotOpen,setForgotOpen]=useState(false);
         showConfirmButton: false,
       });
  localStorage.setItem("user", JSON.stringify(res.user)); // ✅ save user
+ console.log("User Saved");
+ console.log('data:',res.user);
+ localStorage.setItem("token", JSON.stringify(res.token));
+ localStorage.setItem("user_id",JSON.stringify( res.user.user_id));
+ console.log("UserId Saved");
+ console.log("Saved ID =", localStorage.getItem("user_id"));
+ alert(localStorage.getItem("user_id"));
+localStorage.setItem("username", JSON.stringify(res.user.username));
   dispatch({ type: "ADD_USER", payload: res.user });
   setUserData(res.user);    setIdentifier("");
   setPassword("");
   setChecked(false);
-
+console.log(localStorage);
   // ✅ Close dialog after a short delay (optional)
   setTimeout(() => setLoginOpen(false), 800);
     } else {
@@ -328,7 +338,9 @@ const [forgotOpen,setForgotOpen]=useState(false);
    open={forgotOpen}
    setOpen={setForgotOpen}
 />
+
           </div>
+          
         </DialogContent>
       </Dialog>
     </>

@@ -15,6 +15,8 @@ import LegalPage from "./ewaysservices/userinterface/components/screens/LegalPag
 import ProfilePage from "./ewaysservices/userinterface/components/screens/ProfilePage";
 import ResetPassword from "./ewaysservices/userinterface/components/ResetPassword";
 import Hero from "./ewaysservices/userinterface/components/hero/Hero"
+import EditProfile from "./ewaysservices/userinterface/components/EditProfile";
+
 function App() {
   return (
     <div style={{fontFamily:'Open Sans'}}>
@@ -42,6 +44,7 @@ function App() {
    path="/hero"
    element={<Hero/>}
 />
+<Route path="/edit-profile" element={<EditProfile />} />
 
                </Routes>
       </Router>
